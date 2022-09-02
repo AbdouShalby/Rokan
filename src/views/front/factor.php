@@ -44,8 +44,8 @@ require_once APPROOT . '/src/views/include/header.php';
                                    placeholder="Enter your mobile">
                         </div>
                         <div class="form-group required">
-                            <label for="exampleInputOrigin" class="control-label">Origin</label>
-                            <input type="text" class="form-control" id="exampleInputOrigin"
+                            <label for="exampleInputOrigin" class="control-label">Address</label>
+                            <input type="address" class="form-control" id="exampleInputOrigin"
                                    placeholder="Enter your origin">
                         </div>
                         <div class="form-group required">

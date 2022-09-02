@@ -13,12 +13,12 @@ class Login
 		$this->db = new Database;
 	}
 
-	/**
-	 * READ
-	 * @param $email
-	 * @param $password
-	 * @return bool
-	 */
+    /**
+     * READ
+     * @param $email
+     * @param $password
+     * @return array
+     */
 	public function login($email, $password): array
 	{
 		$this->db->query("SELECT * FROM users WHERE User_Email = :email AND User_Password = :pass");
@@ -26,20 +26,15 @@ class Login
 		$this->db->bind(':pass', $password);
 
 		if ($this->db->rowCount() > 0) {
-			$first          = $this->db->single()->User_First;
-			$last           = $this->db->single()->User_Last;
+			$user_name      = $this->db->single()->User_Name;
 			$email          = $this->db->single()->User_Email;
-			$mobile         = $this->db->single()->User_Mobile;
-            $permission     = $this->db->single()->User_Permission;
-			$data = [
-				'valid'         =>  '1',
-				'first'         =>  $first,
-				'last'          =>  $last,
+            $is_admin       = $this->db->single()->User_Is_Admin;
+            return [
+                'valid'         =>  '1',
+                'user_name'     =>  $user_name,
                 'email'         =>  $email,
-				'mobile'        =>  $mobile,
-                'permission'    =>  $permission
-			];
-			return $data;
+                'is_admin'      =>  $is_admin,
+            ];
 		}
 		return [
 			'valid' => 0

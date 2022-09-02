@@ -1,3 +1,4 @@
+/*noinspection CssUnknownTarget*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 header {
@@ -32,7 +33,6 @@ header {
 
 .breadcrumb-item a {
     color: #c55a59;
-
 }
 
 .elmnator h2 {
@@ -398,10 +398,21 @@ ul a {
     font-size: 23px;
 }
 
-.socialMedia a:hover {
-    color: #ebbe1b;
+.socialMedia .header-youtube:hover {
+    color: #ff0000;
 }
 
+.socialMedia .header-instagram:hover {
+    color: #c32aa3;
+}
+
+.socialMedia .header-pinterest:hover {
+    color: #bd081c;
+}
+
+.socialMedia .header-facebook:hover {
+    color: #1877f2;
+}
 
 .header-top {
     font-size: 12px;
@@ -745,7 +756,6 @@ body {
 
 
 .site-section {
-    padding: 3.5rem 0 0 0;
     background-color: white;
 }
 
@@ -1896,10 +1906,9 @@ body {
 }
 
 .media-02819 .img-link {
-    margin-bottom: 30px;
     display: block;
     position: relative;
-    bottom: 0;
+    bottom: -32px;
     -webkit-transition: all .2s;
     -o-transition: all .2s;
     transition: all .2s;
@@ -1910,6 +1919,10 @@ body {
 
 .media-02819 .img-link:hover {
     bottom: 20px;
+}
+
+.media-02819 .img-link img {
+    max-height: 560px;
 }
 
 .media-02819 h3 {
@@ -1924,6 +1937,30 @@ body {
 .media-02819 span {
     font-size: 14px;
     color: #ebbe1b;
+}
+
+.media-280596 {
+    margin-bottom: 60px;
+}
+.media-280596 .small {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+.media-280596 .img-link {
+    display: block;
+    position: relative;
+    bottom: -32px;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+    -webkit-transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    -o-transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+.media-280596 .img-link img {
+    max-height: 700px;
 }
 
 
@@ -2564,8 +2601,20 @@ button {
     font-size: 23px;
 }
 
-.socialMedia a:hover {
-    color: #ebbe1b;
+.socialMedia .header-youtube:hover {
+    color: #ff0000;
+}
+
+.socialMedia .header-instagram:hover {
+    color: #c32aa3;
+}
+
+.socialMedia .header-pinterest:hover {
+    color: #bd081c;
+}
+
+.socialMedia .header-facebook:hover {
+    color: #1877f2;
 }
 
 .decore {
@@ -2804,6 +2853,22 @@ footer {
     padding: 10px 0 25px 0;
 }
 
+footer .whatsapp-footer a {
+    top: 100px;
+    right: 50px;
+    z-index: 1;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+footer .whatsapp-footer a:hover {
+    color: #25d366;
+}
+
+footer .whatsapp-footer span {
+    font-size: 18px;
+    margin-left: -30px;
+}
+
 .pt2 {
     padding-top: 40px;
     margin-bottom: 20px;
@@ -2891,6 +2956,8 @@ footer p {
     display: table;
     margin: 15px auto 0 auto;
     list-style-type: none;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 .social_footer_ul li {
@@ -2910,4 +2977,24 @@ footer p {
     width: 20px;
     height: 20px;
     text-align: center;
+}
+
+.social_footer_ul .footer-facebook a:hover {
+    background-color: #1877f2;
+    border: 1px solid #ccc;
+}
+
+.social_footer_ul .footer-twitter a:hover {
+    background-color: #1da1f2;
+    border: 1px solid #ccc;
+}
+
+.social_footer_ul .footer-linkedin a:hover {
+    background-color: #0a66c2;
+    border: 1px solid #ccc;
+}
+
+.social_footer_ul .footer-instagram a:hover {
+    background-color: #c32aa3;
+    border: 1px solid #ccc;
 }

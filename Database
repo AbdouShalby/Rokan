@@ -1,0 +1,11 @@
+-Home
+--Users [User_ID, User_Name, User_Email, User_Password, User_Is_Admin] --> OK
+--Categories [Category_ID, Category_Name, Category_Description, Category_Visibility] --> OK
+--Works [Work_ID, Work_Name, Work_Image, Work_Category_ID, Work_Visibility, Work_Added_Date] --> OK <--
+--Stats [Stats_ID, Stats_Name, Stats_Number] --> OK
+--Factors [Factors_ID, Factor_Name, Factor_Email, Factor_Mobile, Factor_Address, Factor_Service, Factor_Description] --> OK
+--Contacts [Contact_ID, Contact_Name, Contact_Email, Contact_Message] --> OK
+--Finishing [Finish_ID, Finish_Name, Finish_Price] --> OK
+--Finishing_Orders [Order_ID, Order_Name, Order_Email, Order_Mobile, Order_Address, Order_Package, Order_Price] --> OK
+--Team_Members [Team_ID, Team_Name, Team_Description, Team_Image] --> OK
+--Social_Links [Social_ID, Social_Name, Social_Link] --> OK

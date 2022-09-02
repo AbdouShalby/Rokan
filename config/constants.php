@@ -1,7 +1,7 @@
 <?php
 // App Root
 define('APPROOT', dirname(dirname(__FILE__)));
-const UPLOAD_PATH = APPROOT . "/public\img\\uploaded_data";
+const UPLOAD_PATH = APPROOT . "/public\dashboard\\uploaded_data";
 
 // URL Root
 const URLROOT = 'https://localhost/Rokan/';
@@ -30,23 +30,3 @@ const PINTEREST_LINK = 'https://www.pinterest.com/';
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-
-// CRUD Operations Alert Messages
-const EMPTY_FIRST_NAME = "Firstname Can't Be <strong>Empty</strong>";
-const FIRST_NAME_3 = "Firstname Can't Be Less Than <strong>4 Characters</strong>";
-const FIRST_NAME_20 = "Firstname Can't Be More Than <strong>20 Characters</strong>";
-
-const EMPTY_LAST_NAME = "Lastname Can't Be <strong>Empty</strong>";
-const LAST_NAME_3 = "Lastname Can't Be Less Than <strong>4 Characters</strong>";
-const LAST_NAME_20 = "Lastname Can't Be More Than <strong>20 Characters</strong>";
-
-const EMPTY_EMAIL = "Email Can't Be <strong>Empty</strong>";
-const EXIST_EMAIL = "Email Is <strong>Exist</strong>";
-
-const EMPTY_PASSWORD = "Password Can't Be <strong>Empty</strong>";
-
-const EMPTY_MOBILE = "Mobile Can't Be <strong>Empty</strong>";
-
-const WRONG_DATA = 'Wrong Informations Try Again Or Signup';
-const ACCOUNT_CREATED = 'Account Created Successfully';
-const EVENT_CRATED = 'Event Created Successfully';

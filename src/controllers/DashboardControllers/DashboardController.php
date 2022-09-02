@@ -4,7 +4,7 @@ namespace Controllers;
 
 class DashboardController
 {
-    public function dashboard()
+    public function dashbaord()
     {
         view('dashboard/dashboard');
     }

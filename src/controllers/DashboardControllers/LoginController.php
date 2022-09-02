@@ -14,72 +14,49 @@ class LoginController
 	// Render View
 	public function login()
 	{
-		view('front/login');
+		view('dashboard/login');
 	}
 
 	// Login Logic
 	public function userLogin() {
 		session_start();
 		if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
-			$hashedPass = sha1($_POST['password']);
-			$response = $this->loginModel->login($_POST['email'], $hashedPass);
-            if($response['valid'] == 1){
-                $_SESSION['user']               = $_POST['email'];
-                $_SESSION['User_First']         = $response['first'];
-                $_SESSION['User_Last']          = $response['last'];
-                $_SESSION['User_Mobile']        = $response['mobile'];
-                $_SESSION['User_Permission']    = $response['permission'];
-                header('location: ' . URLROOT); // Redirect To Dashboard Page
-			} else {
-                if (empty($_POST['email'])) {
-                    $_SESSION['empty_email'] = EMPTY_EMAIL;
+            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $filtredPass = (filter_var($_POST['password'], FILTER_SANITIZE_STRING));
+                $hashedPass = sha1($filtredPass);
+                $response = $this->loginModel->login($_POST['email'], $hashedPass);
+                if($response['valid'] == 1){
+                    $_SESSION['User_Email']         = $_POST['email'];
+                    $_SESSION['User_Name']          = $response['user_name'];
+                    $_SESSION['User_Is_Admin']      = $response['is_admin'];
+                    $_SESSION['start'] = time(); // Taking now logged in time.
+                    // Ending a session in 30 minutes from the starting time.
+                    $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
+                    header('location: ' . URLROOT . 'admin'); // Redirect To Dashboard Page
+                } else {
+                    if (empty($_POST['email'])) {
+                        $_SESSION['empty_email'] = "E-Mail Can't Be Empty.\n";
+                    }
+                    if (empty($_POST['password'])) {
+                        $_SESSION['empty_pass'] = "Password Can't Be Empty.\n";
+                    }
+                    $_SESSION['wrong_data'] = "The email or password you entered is not associated with an account.\n";
+                    header('location: ' . URLROOT . 'login'); // Redirect To Login Page
                 }
-                if (empty($_POST['password'])) {
-                    $_SESSION['empty_pass'] = EMPTY_PASSWORD;
-                }
-                $_SESSION['wrong_data'] = WRONG_DATA;
-                header('location: ' . URLROOT . '/login'); // Redirect To Dashboard Page
-			}
+            } else {
+                header('location: ' . URLROOT . 'login');
+                $_SESSION['invalid_email'] = "This is an INVALID email address.\n";
+            }
 		} else {
-			header('location: ' . URLROOT . '/login');
+			header('location: ' . URLROOT . 'login');
 		}
 	}
-
-    // Login Logic
-    public function checkout_user_login() {
-        session_start();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
-            $hashedPass = sha1($_POST['password']);
-            $response = $this->loginModel->login($_POST['email'], $hashedPass);
-            if($response['valid'] == 1){
-                $_SESSION['user']               = $_POST['email'];
-                $_SESSION['User_First']         = $response['first'];
-                $_SESSION['User_Last']          = $response['last'];
-                $_SESSION['User_Mobile']        = $response['mobile'];
-                $_SESSION['User_Permission']    = $response['permission'];
-                $_SESSION['ticket_for'] = $_POST['ticket_for'];
-                $_SESSION['ticket_count'] = $_POST['ticket_count'];
-                header('location: ' . URLROOT . '/checkout_billing'); // Redirect To Dashboard Page
-            } else {
-                if (empty($_POST['email'])) {
-                    $_SESSION['empty_email'] = EMPTY_EMAIL;
-                }
-                if (empty($_POST['password'])) {
-                    $_SESSION['empty_pass'] = EMPTY_PASSWORD;
-                }
-                $_SESSION['wrong_data'] = WRONG_DATA;
-                header('location: ' . URLROOT . '/checkout_login'); // Redirect To Dashboard Page
-            }
-        } else {
-            header('location: ' . URLROOT . '/checkout_login');
-        }
-    }
 
     public function logout() {
         session_start();
         session_unset();
         session_destroy();
-        header('location: ' . URLROOT . '/login');
+        header('location: ' . URLROOT . 'login');
         exit();
     }
 }

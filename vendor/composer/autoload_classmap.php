@@ -6,24 +6,25 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    // Routes
     'App\\Router' => $baseDir . '/src/app/Router.php',
-
-    // Versions
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-
-    // Front Controllers
-    'Controllers\\IndexController' => $baseDir . '/src/controllers/FrontControllers/IndexController.php',
-    'Controllers\\FactorController' => $baseDir . '/src/controllers/FrontControllers/FactorController.php',
-    'Controllers\\FinishController' => $baseDir . '/src/controllers/FrontControllers/FinishController.php',
+    'Controllers\\CategoriesController' => $baseDir . '/src/controllers/DashboardControllers/CategoriesController.php',
     'Controllers\\ContactController' => $baseDir . '/src/controllers/FrontControllers/ContactController.php',
-    'Controllers\\GalleryController' => $baseDir . '/src/controllers/FrontControllers/GalleryController.php',
-
-    // Dashboard Controllers
+    'Controllers\\ContactMessagesController' => $baseDir . '/src/controllers/DashboardControllers/ContactMessagesController.php',
     'Controllers\\DashboardController' => $baseDir . '/src/controllers/DashboardControllers/DashboardController.php',
-    'Controllers\\OurworkController' => $baseDir . '/src/controllers/DashboardControllers/OurworkController.php',
+    'Controllers\\FactorController' => $baseDir . '/src/controllers/FrontControllers/FactorController.php',
+    'Controllers\\FactorOrdersController' => $baseDir . '/src/controllers/DashboardControllers/FactorOrdersController.php',
+    'Controllers\\FinishController' => $baseDir . '/src/controllers/FrontControllers/FinishController.php',
+    'Controllers\\FinishingController' => $baseDir . '/src/controllers/DashboardControllers/FinishingController.php',
+    'Controllers\\GalleryController' => $baseDir . '/src/controllers/FrontControllers/GalleryController.php',
+    'Controllers\\IndexController' => $baseDir . '/src/controllers/FrontControllers/IndexController.php',
     'Controllers\\LoginController' => $baseDir . '/src/controllers/DashboardControllers/LoginController.php',
-
-    // Models
+    'Controllers\\OurworkController' => $baseDir . '/src/controllers/DashboardControllers/OurworkController.php',
+    'Controllers\\SocialLinksController' => $baseDir . '/src/controllers/DashboardControllers/SocialLinksController.php',
+    'Controllers\\StatsController' => $baseDir . '/src/controllers/DashboardControllers/StatsController.php',
+    'Controllers\\TeamController' => $baseDir . '/src/controllers/DashboardControllers/TeamController.php',
+    'Models\\Category' => $baseDir . '/src/models/Category.php',
     'Models\\Database' => $baseDir . '/src/models/Database.php',
+    'Models\\Login' => $baseDir . '/src/models/Login.php',
+    'Models\\OurWork' => $baseDir . '/src/models/OurWork.php',
 );
