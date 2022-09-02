@@ -2,33 +2,29 @@
 
 namespace Controllers;
 
-use \Models\Login;
+use Models\Login;
 
 class LoginController
 {
-	public function __construct()
-	{
-		$this->loginModel = new Login;
-	}
+    public function __construct()
+    {
+        $this->loginModel = new Login;
+    }
 
-	// Render View
-	public function login()
-	{
-		view('dashboard/login');
-	}
+    // Render View
 
-	// Login Logic
-	public function userLogin() {
-		session_start();
-		if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
+    public function userLogin()
+    {
+        session_start();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $filtredPass = (filter_var($_POST['password'], FILTER_SANITIZE_STRING));
                 $hashedPass = sha1($filtredPass);
                 $response = $this->loginModel->login($_POST['email'], $hashedPass);
-                if($response['valid'] == 1){
-                    $_SESSION['User_Email']         = $_POST['email'];
-                    $_SESSION['User_Name']          = $response['user_name'];
-                    $_SESSION['User_Is_Admin']      = $response['is_admin'];
+                if ($response['valid'] == 1) {
+                    $_SESSION['User_Email'] = $_POST['email'];
+                    $_SESSION['User_Name'] = $response['user_name'];
+                    $_SESSION['User_Is_Admin'] = $response['is_admin'];
                     $_SESSION['start'] = time(); // Taking now logged in time.
                     // Ending a session in 30 minutes from the starting time.
                     $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
@@ -47,12 +43,20 @@ class LoginController
                 header('location: ' . URLROOT . 'login');
                 $_SESSION['invalid_email'] = "This is an INVALID email address.\n";
             }
-		} else {
-			header('location: ' . URLROOT . 'login');
-		}
-	}
+        } else {
+            header('location: ' . URLROOT . 'login');
+        }
+    }
 
-    public function logout() {
+    // Login Logic
+
+    public function login()
+    {
+        view('dashboard/login');
+    }
+
+    public function logout()
+    {
         session_start();
         session_unset();
         session_destroy();
